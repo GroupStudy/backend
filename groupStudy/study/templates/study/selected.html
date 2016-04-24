@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>hi</title>
 </head>
 <body>
+<ul>
+{%for n in checked%}
+
+    <a href="./{{n.id}}"><li>{{n.people}}</li></a>
+
+
+{% endfor %}
+</ul>
+
+
 
 </body>
 </html>

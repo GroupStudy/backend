@@ -21,5 +21,8 @@ from study import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='index'),
+    url(r'^(?P<build_id>\d+)/$', views.inbuilding, name='select'),
+    url(r'^(?P<build_id>\d+)/(?P<student_id>\d+)/', views.openUser, name='select'),
 
 ]
