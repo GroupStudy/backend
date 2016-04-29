@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from study import views
-
+#signIn
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='indexe'),
+    url(r'^signIn/', views.signIn, name='signIn'),
     url(r'^(?P<build_id>\d+)/$', views.inbuilding, name='select'),
     url(r'^(?P<build_id>\d+)/(?P<student_id>\d+)/', views.openUser, name='select'),
 
