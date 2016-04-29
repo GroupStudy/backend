@@ -89,7 +89,7 @@ def signIn(request):
 
     elif (check == "-1"):
          context = RequestContext(request, {
-            'warning':'Error: you spelled your netid wrong you pleb'
+            'warning':'Error: you spelled your netid/password wrong you pleb'
 
           })
          template = loader.get_template('study/SignIn.html')
