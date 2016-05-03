@@ -3,6 +3,7 @@
 {% bootstrap_javascript jquery=1 %}
 {%load static%}
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,18 +13,24 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{% static 'study/../../favicon.ico' %}">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Group Study</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'study/css/bootstrap.min.css' %}" />
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'study/css/grayscale.css' %}" />
 
     <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'study/css/custom.css' %}" />
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'study/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,30 +39,100 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="glyphicon glyphicon-pencil"></i> Group Study
+                </a>
+            </div>
 
-      <form class="form-signin" method="post" action="/signIn/">
-        {% csrf_token %}
-        <h2 class="form-signin-heading" align="center">Please sign in</h2>
-          <h2>{{ warning }}</h2>
-        <label for="netID" class="sr-only">Email address</label>
-        <input type="email" id="netID" class="form-control" placeholder="Email address" required autofocus name="netID">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#page-top">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <!--li>
+                        <a class="page-scroll" href="#contact">About us</a>
+                    </li-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-    </div> <!-- /container -->
+        <!-- /.container -->
+    </nav>
 
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4" align="center">
+                        <h1 class="brand-heading" align="center">Group Study</h1>
+			<form class="form-signin" method="post" action="/signIn/">
+       				{% csrf_token %}
+        			<h2>{{ warning }}</h2>
+       				<label for="netID" class="sr-only">Email address</label>
+        			<input type="email" id="netID" class="form-control" placeholder="Email Address" required autofocus name="netID">
+        			<label for="inputPassword" class="sr-only">Password</label>
+        			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+        			<div class="checkbox">
+          				<label>
+            					<input type="checkbox" value="remember-me"> Remember Me
+          				</label>
+        			</div>
+        			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      			</form>
+                        <p class="intro-text">Find study partners near you<br></p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+	<div class="about">
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Group Study</h2>
+                <p>Group Study is an app made for University of Illinois students, by U of I students, to help students find study partners.</p>
+                <p>Simply select your classes, pick a location, and find study partners near you.</p>
+		<p>Offered for Grainger, ECEB, Siebel, and PAR</p>
+            </div>
+        </div>
+    </section>
+	</div>
+
+    <!-- jQuery -->
+    <script src="{% static 'study/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'study/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'study/js/jquery.easing.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'study/js/grayscale.js' %}"></script>
+
   </body>
 </html>
